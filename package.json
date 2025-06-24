@@ -1,0 +1,53 @@
+{
+  "name": "collaborative-code-review",
+  "version": "1.0.0",
+  "description": "Collaborative Code Review & Knowledge-Sharing Platform",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "websocket-server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\" \"npm run dev:websocket\" \"npm run dev:ai\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run start:dev",
+    "dev:websocket": "cd websocket-server && npm run dev",
+    "dev:ai": "cd ai-service && python -m uvicorn main:app --reload --port 5000",
+    "build": "npm run build:frontend && npm run build:backend && npm run build:websocket",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "build:websocket": "cd websocket-server && npm run build",
+    "test": "npm run test:frontend && npm run test:backend",
+    "test:frontend": "cd frontend && npm run test",
+    "test:backend": "cd backend && npm run test",
+    "lint": "npm run lint:frontend && npm run lint:backend",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:backend": "cd backend && npm run lint",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/collaborative-code-review.git"
+  },
+  "keywords": [
+    "code-review",
+    "collaboration",
+    "real-time",
+    "ai",
+    "typescript",
+    "react",
+    "nodejs"
+  ],
+  "author": "Your Team",
+  "license": "MIT"
+} 
