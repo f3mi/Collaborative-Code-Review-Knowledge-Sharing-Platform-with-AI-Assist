@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import Editor from '@monaco-editor/react'
@@ -44,7 +44,6 @@ interface ReviewSession {
 
 export default function ReviewSession() {
   const { sessionId } = useParams<{ sessionId: string }>()
-  const { user } = useAuth()
   const [newComment, setNewComment] = useState('')
   const [selectedLine, setSelectedLine] = useState<number | null>(null)
   const [aiSuggestions, setAiSuggestions] = useState<string[]>([])
